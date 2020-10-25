@@ -1,12 +1,20 @@
 \documentclass[a4paper]{article}
 
+% Don't have hyperref style links, we will do that in cleveref
+\usepackage[hidelinks]{hyperref}
+
 \usepackage{appendix}
 \usepackage{cleveref}
 \usepackage{enumitem}
 \usepackage[margin=2.5cm]{geometry}
 \usepackage[utf8]{inputenc}
 
-\setlist[enumerate,1]{ref=\thesection.\theenumi}
+% All items are numbered in dotted-decimal, starting with section number
+\setlist[enumerate]{label*=.\arabic*}
+\setlist[enumerate,1]{label=\thesection.\arabic*}
+
+% Make cross references bold and underlined
+\crefdefaultlabelformat{#2\textbf{\underline{#1}}#3}
 
 \title{The Constitution of Unigames}
 \author{}
