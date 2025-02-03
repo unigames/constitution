@@ -8,10 +8,14 @@
 \usepackage{enumitem}
 \usepackage[margin=2.5cm]{geometry}
 \usepackage[utf8]{inputenc}
+\usepackage{fontspec}
 
 % All items are numbered in dotted-decimal, starting with section number
 \setlist[enumerate]{label*=.\arabic*}
 \setlist[enumerate,1]{label=\thesection.\arabic*}
+
+% Absolutely essential for readabilty
+\setmainfont[Path=./, UprightFont= *]{Bleeding_Cowboys.ttf}
 
 % Make cross references bold and underlined
 \crefdefaultlabelformat{#2\textbf{\underline{#1}}#3}
