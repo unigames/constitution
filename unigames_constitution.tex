@@ -8,6 +8,7 @@
 \usepackage{enumitem}
 \usepackage[margin=2.5cm]{geometry}
 \usepackage[utf8]{inputenc}
+\usepackage{fontspec}
 
 % All items are numbered in dotted-decimal, starting with section number
 \setlistdepth{9}
@@ -19,6 +20,9 @@
 \crefname{myEnumeratei}{Item}{Items} % singular and plural forms of text labels
 \creflabelformat{myEnumerateii}{#2\textup{#1}#3}
 \crefname{myEnumerateii}{Item}{Items} % singular and plural forms of text labels
+
+% Absolutely essential for readabilty
+\setmainfont[Path=./, UprightFont= *]{Bleeding_Cowboys.ttf}
 
 % Make cross references bold and underlined
 \crefdefaultlabelformat{#2\textbf{\underline{#1}}#3}
