@@ -20,8 +20,11 @@ jobs:
             apt-get install -y latexml
             latexml unigames_constitution.tex --dest=cons.xml
             latexmlpost cons.xml --dest=unigames_constitution.html
+            pdflatex unigames_constitution.tex
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4.6.2
         with:
           name: output 
-          path: unigames_constitution.html
+          path: |
+            unigames_constitution.html
+            unigames_constitution.pdf
