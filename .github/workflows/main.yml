@@ -1,0 +1,27 @@
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository to the runner
+        uses: actions/checkout@v4
+      - name: Compile constitution into HTML and PDF
+        uses: xu-cheng/texlive-action@v3
+        with:
+          os: debian
+          run: |
+            # Install system dependencies
+            export DEBIAN_FRONTEND=noninteractive
+            apt-get update -y
+            apt-get install -y latexml
+            latexml unigames_constitution.tex --dest=cons.xml
+            latexmlpost cons.xml --dest=unigames_constitution.html
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: # optional, default is artifact
+          path: unigames_constitution.html
