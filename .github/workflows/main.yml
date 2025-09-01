@@ -18,8 +18,16 @@ jobs:
             export DEBIAN_FRONTEND=noninteractive
             apt-get update -y
             apt-get install -y latexml
+
+            # Export to HTML
             latexml unigames_constitution.tex --dest=cons.xml
             latexmlpost cons.xml --dest=unigames_constitution.html
+
+            # Export to PDF
+            # PDFLatex needs multiple re-runs to get output correct.
+            # Three should do.
+            pdflatex unigames_constitution.tex
+            pdflatex unigames_constitution.tex
             pdflatex unigames_constitution.tex
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4.6.2
